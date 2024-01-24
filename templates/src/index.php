@@ -67,26 +67,41 @@ include($root_path . '/partials/head.php');
 			</div>
 		</div>
 	</div>
-	<div class="container">
+	<div class="hero__bottom">
 		<div class="hero__teasers">
-			<?php for($i = 0; $i < 3; $i++) {
-				$style = null;
-				$illustration = null;
-				if($i == 1) $style = 'black';
-				if($i == 2) $illustration = '/assets/images/map.svg';
-				echo generate_component_teaser([
-					'style' => $style,
-					'illustration' => $illustration,
-					'uptitle' => '0' . $i + 1 . ' Mai',
-					'headline' => [
-						'label' => 'My teaser title',
-						'tag' => 'h2',
-						'tag_class' => $i < 2 ? 'h5' : 'h3',
-					],
-					'subtitle' => 'Subtitle',
-					'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-				]);
-			} ?>
+			<div class="hero__teasers__left">
+				<?php for($i = 0; $i < 2; $i++) {
+					$style = null;
+					if($i == 1) $style = 'black';
+					echo generate_component_teaser([
+						'style' => $style,
+						'uptitle' => '0' . $i + 1 . ' Mai',
+						'headline' => [
+							'label' => 'My teaser title',
+							'tag' => 'h2',
+							'tag_class' => 'h5',
+						],
+						'subtitle' => 'Subtitle',
+						'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+					]);
+				} ?>
+			</div>
+			<div class="hero__teasers__right">
+				<?php 
+					$illustration = '/assets/images/map.svg';
+					echo generate_component_teaser([
+						'illustration' => $illustration,
+						'uptitle' => '03 Mai',
+						'headline' => [
+							'label' => 'My teaser title',
+							'tag' => 'h2',
+							'tag_class' => 'h5',
+						],
+						'subtitle' => 'Subtitle',
+						'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+					]);
+				?>
+			</div>
 		</div>
 	</div>
 </section>

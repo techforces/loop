@@ -31,7 +31,7 @@ if(!function_exists('generate_component_teaser')){
 
 		<div class="teaser <?= $style ? 'teaser--style--'.$style : '' ?>">
 			<?php if($illustration) { ?>
-				<img class="teaser__illustration" src="<?= $illustration ?>" />
+				<img class="teaser__illustration" src="<?= $illustration ?>" draggable="false"/>
 			<?php } ?>
 			<?php if($uptitle) { ?>
 				<div class="teaser__uptitle label"><?= $uptitle ?></div>
