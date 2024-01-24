@@ -1,6 +1,5 @@
 <?php 
 $root_path = $_SERVER['DOCUMENT_ROOT'];
-echo $root_path;
 include($root_path . '/partials/head.php'); 
 ?>
 
@@ -17,7 +16,7 @@ include($root_path . '/partials/head.php');
 						<a class="navigation__links__item label color-light" href="#">About us</a>
 					</li>
 					<li>
-					    <a class="navigation__links__item label color-light" href="#">Gallery</a>
+						<a class="navigation__links__item label color-light" href="#">Gallery</a>
 					</li>
 					<li>
 						<a class="navigation__links__item label color-light" href="#">Crew</a>
