@@ -2,19 +2,75 @@ class Grid {
 	rows;
 	grid;
 
-	n_rows = 3;
-	n_size = 5;
+	default_rows = 3;
+	default_size = 5;
+
+	current_rows = 3;
+	current_size = 5;
+
+	filters;
+	sizes;
 
 	constructor () {
 		this.rows = [];
 		this.grid = document.getElementsByClassName('photos__grid')[0];
 		this.grid.innerHTML = '';
 
-		for (let i = 0; i < this.n_rows; i++) {
+		const btn = document.getElementsByClassName('js-load-btn')[0];
+		btn.addEventListener('click', () => {
+			console.log('click');
+		});
+
+		this.filters = document.getElementsByClassName('data-filter');
+
+		for (let i = 0; i < this.filters.length; i++) {
+			this.filters[i].addEventListener('click', (el) => {
+				this.filter(el.target.dataset.filter, el.target);
+			});
+		}
+
+		this.sizes = document.getElementsByClassName('data-size');
+
+		for (let i = 0; i < this.sizes.length; i++) {
+			this.sizes[i].addEventListener('click', (el) => {
+				this.resize(el.target.dataset.size, el.target);
+			});
+		}
+	}
+
+	filter (value, target) {
+		for (let i = 0; i < this.filters.length; i++) {
+			this.filters[i].classList.remove('data-filter--active');
+		}
+		target.classList.add('data-filter--active');
+
+		this.fetchCrewMembers(1, 15, value);
+	}
+
+	resize (value, target) {
+		console.log(value);
+		for (let i = 0; i < this.sizes.length; i++) {
+			this.sizes[i].classList.remove('data-size--active');
+		}
+		target.classList.add('data-size--active');
+
+		this.fetchCrewMembers(1, 15, value);
+	}
+
+	addElements (data) {
+		console.log(data);
+
+		this.grid.innerHTML = '';
+
+		let idx = 0;
+		let breakAll = false;
+
+		for (let i = 0; i < this.default_rows; i++) {
 			const row = document.createElement('div');
 			row.classList.add('photos__row');
 
-			for (let j = 0; j < this.n_size; j++) {
+			for (let j = 0; j < this.default_size; j++) {
+				// console.log(data[idx]);
 				const cell = document.createElement('div');
 				cell.classList.add('photos__cell');
 
@@ -22,23 +78,62 @@ class Grid {
 				text.classList.add('photos__cell__facts');
 
 				const h5 = document.createElement('h5');
-				h5.innerHTML = 'Andrea Mustermann';
+				h5.innerHTML = data[idx].name;
 
 				const p = document.createElement('p');
-				p.innerHTML =
-					'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem provident alias molestiae. Commodi est, tempora vel dolores ad laboriosam temporibus!';
+				p.innerHTML = data[idx].duties;
 
 				text.appendChild(h5);
 				text.appendChild(p);
 
 				const img = document.createElement('img');
-				img.src = './assets/images/andrea.jpg';
+				img.src = data[idx].image;
 				cell.appendChild(text);
 				cell.appendChild(img);
 				row.appendChild(cell);
+
+				idx++;
+				if (idx === data.length) {
+					breakAll = true;
+					break;
+				}
 			}
 
 			this.grid?.appendChild(row);
+
+			if (breakAll === true) {
+				break;
+			}
+		}
+	}
+
+	async fetchCrewMembers (page = 1, size = 15, filter = 'all') {
+		let queryParams = `?page=${page}&limit=${size}`;
+		if (filter !== 'all') {
+			queryParams = `?duty=${filter}&page=${page}&limit=${size}`;
+		}
+
+		const apiUrl = 'https://challenge-api.view.agentur-loop.com/api/';
+		const url = `${apiUrl}${queryParams}`;
+
+		try {
+			const response = await fetch(url, {
+				method: 'GET',
+				headers: {
+					Authorization: 'Bearer 0123456789',
+				},
+			});
+
+			if (!response.ok) {
+				throw new Error(
+					`API Request Error: ${response.status} - ${response.statusText}`,
+				);
+			}
+
+			const crewMembers = await response.json();
+			this.addElements(crewMembers.data.data);
+		} catch (error) {
+			console.error(error.message);
 		}
 	}
 }

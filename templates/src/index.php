@@ -148,10 +148,10 @@ include($root_path . '/partials/head.php');
 			<h5>Subtitle Goes Here</h5>
 		</div>
 		<div class="team__header__filters">
-			<div class="team__header__filters--active">Show all</div>
-			<div>Trim</div>
-			<div>Tactic</div>
-			<div>Helsmann</div>
+			<div data-filter="all" class="data-filter data-filter--active">Show all</div>
+			<div data-filter="trim" class="data-filter">Trim</div>
+			<div data-filter="tactic" class="data-filter">Tactic</div>
+			<div data-filter="helmsman" class="data-filter">Helsmann</div>
 		</div>
 	</div>
 
@@ -180,14 +180,14 @@ include($root_path . '/partials/head.php');
         <div class="photos__size-controls">
             <!-- <div>2</div>
             <div>3</div> -->
-            <div>4</div>
-            <div class="photos__size-controls--active">5</div>
-            <div>6</div>
+            <div class="data-size">4</div>
+            <div class="data-size data-size--active">5</div>
+            <div class="data-size">6</div>
           	</div>
     </div>
 
     <div class="button-container">
-        <button class="btn">Load More</button>
+        <button class="btn js-load-btn">Load More</button>
     </div>
 </section>
 
@@ -226,7 +226,7 @@ include($root_path . '/partials/head.php');
 			<a target="_blank" href="https://www.youtube.com/">
 				<img src="./assets/icons/inline/youtube.svg" alt="" draggable="false" />
 			</a>
-		</div>-
+		</div>
 	</div>
 </footer>
 
