@@ -63,3 +63,36 @@
 		}
 	}
 }
+
+.btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	padding: 24px 64px;
+	box-sizing: border-box;
+
+	font-family: Inter;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 120%;
+	letter-spacing: 1.28px;
+	text-transform: uppercase;
+
+	background-color: $color-light;
+	transition: all 0.3s;
+
+	border: none;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $color-neutral-15;
+	}
+}
+
+.button-container {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-top: 40px;
+}

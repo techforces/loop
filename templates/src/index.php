@@ -175,11 +175,47 @@ include($root_path . '/partials/head.php');
               ...
             </grid>
         -->
-        <div class="photos__grid"><!-- Rendered dynamically --></div>
+        <div class="photos__grid"><!-- Rendered dynamically -->
+			<div class="photos__row">
+				<div class="photos__cell">
+					<div class="photos__cell__facts">
+						<h5>Andrea Mustermann</h5>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem provident alias molestiae. Commodi est, tempora vel dolores ad laboriosam temporibus!</p>
+					</div>
+					<img src="./assets/images/andrea.jpg">
+				</div>
+				<div class="photos__cell">
+					<div class="photos__cell__facts">
+						<h5>Andrea Mustermann</h5>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem provident alias molestiae. Commodi est, tempora vel dolores ad laboriosam temporibus!</p>
+					</div>
+					<img src="./assets/images/andrea.jpg">
+				</div>
+				<div class="photos__cell">
+					<div class="photos__cell__facts">
+						<h5>Andrea Mustermann</h5>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem provident alias molestiae. Commodi est, tempora vel dolores ad laboriosam temporibus!</p>
+					</div>
+					<img src="./assets/images/andrea.jpg">
+				</div><div class="photos__cell">
+					<div class="photos__cell__facts">
+						<h5>Andrea Mustermann</h5>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem provident alias molestiae. Commodi est, tempora vel dolores ad laboriosam temporibus!</p>
+					</div>
+					<img src="./assets/images/andrea.jpg">
+				</div><div class="photos__cell">
+					<div class="photos__cell__facts">
+						<h5>Andrea Mustermann</h5>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem provident alias molestiae. Commodi est, tempora vel dolores ad laboriosam temporibus!</p>
+					</div>
+					<img src="./assets/images/andrea.jpg">
+				</div>
+			</div>
+		</div>
 
         <div class="photos__size-controls">
-            <div>2</div>
-            <div>3</div>
+            <!-- <div>2</div>
+            <div>3</div> -->
             <div>4</div>
             <div class="photos__size-controls--active">5</div>
             <div>6</div>
@@ -226,7 +262,7 @@ include($root_path . '/partials/head.php');
 			<a target="_blank" href="https://www.youtube.com/">
 				<img src="./assets/icons/inline/youtube.svg" alt="" draggable="false" />
 			</a>
-		</div>
+		</div>-
 	</div>
 </footer>
 
