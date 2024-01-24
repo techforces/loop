@@ -95,7 +95,7 @@ include($root_path . '/partials/head.php');
 						'headline' => [
 							'label' => 'My teaser title',
 							'tag' => 'h2',
-							'tag_class' => 'h5',
+							'tag_class' => 'h3',
 						],
 						'subtitle' => 'Subtitle',
 						'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',

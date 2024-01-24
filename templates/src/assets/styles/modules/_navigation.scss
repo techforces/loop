@@ -108,7 +108,7 @@
 	&__mobile-toggle {
 		position: relative;
 		background: $color-primary;
-		height: var(--navigation-height, 80px);
+		height: calc(var(--navigation-height, 80px) + 1px);
 		width: var(--navigation-height, 80px);
 		margin-left: auto;
 		margin-right: -$page-padding-small;
