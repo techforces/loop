@@ -9,6 +9,8 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<title>Segel Team — Home</title>
+
+	<link rel="icon" type="image/png" href="./assets/images/favicon.ico" />
 	
 	<?php include($root_path . '/partials/styles.php'); ?>
 	<?php include($root_path . '/partials/project-config.php'); ?>

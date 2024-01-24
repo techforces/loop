@@ -131,22 +131,103 @@ include($root_path . '/partials/head.php');
 	</div>
 </section>
 
-<section class="visual">
-	<div class="container">
-		<div class="visual__inner">
-			<div class="visual__visual">
-				<?php echo generate_component_image([
-					'sources' => [
-						[
-							'src' => '/assets/images/visual.jpg',
-							'width' => 810,
-						],
-					],
-					'class' => 'visual__visual__image',
-				]); ?>
-			</div>
+<section class="team">
+	<?php echo generate_component_image([
+		'sources' => [
+			[
+				'src' => '/assets/images/visual.jpg',
+				'width' => 810,
+			],
+		],
+		'class' => 'team__intro-img',
+	]); ?>
+
+	<div class="team__header">
+		<div class="team__header__title">
+			<h2>Unser Team</h2>
+			<h5>Subtitle Goes Here</h5>
+		</div>
+		<div class="team__header__filters">
+			<div class="team__header__filters--active">Show all</div>
+			<div>Trim</div>
+			<div>Tactic</div>
+			<div>Helsmann</div>
 		</div>
 	</div>
+
+    <div class="photos">
+        <!-- 
+            The Layout of the grid:
+
+            <grid>
+              	<row>
+					<cell>
+						<facts>
+							<h5/>
+							<p/>
+						</facts>
+						<img/>
+					</cell>
+                ...
+				</row>
+				<row/>
+				<row/>
+              ...
+            </grid>
+        -->
+        <div class="photos__grid"><!-- Rendered dynamically --></div>
+
+        <div class="photos__size-controls">
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div class="photos__size-controls--active">5</div>
+            <div>6</div>
+          	</div>
+    </div>
+
+    <div class="button-container">
+        <button class="btn">Load More</button>
+    </div>
 </section>
+
+<footer class="footer">
+	<div class="footer__left">
+		<img src="./assets/images/logo.svg" alt="" draggable="false" />
+		<small>© 2021. Segel-Team. Alle Rechte vorbehalten</small>
+	</div>
+	<div class="footer__right">
+		<div class="footer__links">
+			<ul>
+				<li><a href="#">About Us</a></li>
+				<li><a href="#">Gallery</a></li>
+				<li><a href="#">Crew</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+
+			<ul>
+				<li><a href="#">Impressum</a></li>
+				<li><a href="#">Datenschutz</a></li>
+				<li><a href="#">Rechtliches</a></li>
+				<li><a href="#">Copyright</a></li>
+			</ul>
+		</div>
+
+		<div class="footer__media">
+			<a target="_blank" href="https://www.facebook.com/">
+				<img src="./assets/icons/inline/facebook.svg" alt="" draggable="false" />
+			</a>
+			<a target="_blank" href="https://twitter.com/">
+				<img src="./assets/icons/inline/twitter.svg" alt="" draggable="false" />
+			</a>
+			<a target="_blank" href="https://www.instagram.com/">
+				<img src="./assets/icons/inline/instagram.svg" alt="" draggable="false" />
+			</a>
+			<a target="_blank" href="https://www.youtube.com/">
+				<img src="./assets/icons/inline/youtube.svg" alt="" draggable="false" />
+			</a>
+		</div>
+	</div>
+</footer>
 
 <?php include($root_path . '/partials/foot.php'); ?>  
