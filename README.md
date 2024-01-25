@@ -8,32 +8,32 @@
 #### Main Features delivered
 
 - Hero section: shadow added for better visibility, navigation adjusted, reused Teaser PHP component, refactored the Teaser section, added slopes to Teasers via `clip-path` 
-- Adjusted margins and paddings for Text-content section
-- Complete Grid with asyncronous API calls (AJAX): filter function which gets data when called sorted by User's Duty, grid size adjustment function, Load More / Show Less function (it checks if more elements can be called), if all the elements are loaded by default (e.g. <15 elements) the button is hidden, dynamic grid rendering and order with `display: grid` property, grid cell hover effect to display information, last cell from each row slides the content to left side. Grid is completely responsive.
+- Adjusted margins and paddings for the Text-Content section
+- Complete Grid with asynchronous API calls (AJAX): filter function which gets data when called sorted by User's Duty, grid size adjustment function, Load More / Show Less function (it checks if more elements can be called), if all the elements are loaded by default (e.g. <15 elements) the button is hidden, dynamic grid rendering and order with `display: grid` property, grid cell hover effect to display information, last cell from each row slides the content to left side. Grid is completely responsive.
 - Visual section
 - Footer section
 - All sections are fully responsive
 - Reused the PHP components where possible
-- Reused provided SCSS mixins, colors and fonts where possible
+- Reused provided SCSS mixins, colours and fonts where possible
 - Tried to maintain the class naming conventions
 - Applied the Editor Config
 
 #### Custom Feature delivered
-- Visual: Instead of plain image, I added 3D plane with the image as a texture and applied some shaders and math for interactivity (fully custom/personal code, can be explained in detail as a proof). Responsive as well, interacts with the user via mouse clicks.
+- Visual: Instead of a plain image, I added a 3D plane with the image as a texture and applied some shaders and math for interactivity (fully custom/personal code, which can be explained in detail as a proof). Responsive as well, interacts with the user via mouse Clicks.
 - Extended the packages with ThreeJS, GSAP and GLSL for the 3D Visual, adjusted the `webpack.common.js`
 
-Why did I bother with creating such a complicated effect? Because I wanted to add my touch to it and had a lot of fun :)
+Why did I bother with creating such a complicated effect? Because I wanted to add my touch to it and had a lot of fun.
 Creating cool things is my hobby, and I wanted to share the effect I made recently :)
 
 #### Timeframe
-I for some reason I misinterpreted the link in the email  to the base files and thought it is an API link and assumed I will have to create the project from scratch. Midway I had realised that and switched to the Base files.
+For some reason, I misinterpreted the link in the email  to the base files and thought it was an API link and assumed I would have to create the project from scratch. Midway I had realised that and switched to the Base files.
 
 Tuesday: created the Desktop template from scratch with ViteJS and SCSS (6 hours). Link to the project that I created from scratch: [https://github.com/techforces/SegelDemo](https://github.com/techforces/SegelDemo)
 Wednesday: realised that there are base files, switched to the new project, set it up, studied the codebase (2 hours), finished the template, added base API call function (4 hours)
-Thursday (day of submission): Finsihed the grid functionaliy (3 hours), made the page responsive (3 hours), and added the 3D visual (3 hours).
+Thursday (day of submission): Finished the grid functionality (3 hours), made the page responsive (3 hours), and added the 3D visual (3 hours).
 
 #### Conclusion
-I had to allocate my free from work time for this. In total I spent 6 (tuesday) + 6 (wednesday) + 9 (thursday) = 21 hours.
+I had to allocate my free from work time for this. In total, I spent 6 (Tuesday) + 6 (Wednesday) + 9 (Thursday) = 21 hours.
 I have put a lot of love and effort into this demo, I hope you will like it! ;)
 
 ---
