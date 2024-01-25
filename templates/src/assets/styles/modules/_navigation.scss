@@ -103,6 +103,16 @@
 			display: inline-flex;
 			height: 97px;
 		}
+
+		svg {
+			transition: all 0.3s;
+		}
+
+		&:hover {
+			svg {
+				transform: translateX(10px);
+			}
+		}
 	}
 
 	&__mobile-toggle {
