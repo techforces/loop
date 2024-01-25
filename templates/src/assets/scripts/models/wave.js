@@ -132,6 +132,12 @@ class Wave {
 
 		// Resize event, make the plane size responsive
 		window.addEventListener('resize', () => {
+			this.camera.aspect =
+				(window.innerWidth * 0.8) / (window.innerHeight * 0.8);
+			this.camera.updateProjectionMatrix();
+
+			this.renderer.setSize(window.innerWidth - 80, window.innerHeight);
+
 			this.planeW = Math.min(window.innerWidth * 0.8, 1200);
 			this.planeH = this.planeW / 2;
 
