@@ -54,7 +54,17 @@ class Grid {
 		}
 		target.classList.add('data-size--active');
 
-		this.fetchCrewMembers(1, 15, value);
+		this.grid.classList.remove(
+			'photos__grid--2',
+			'photos__grid--3',
+			'photos__grid--4',
+			'photos__grid--5',
+			'photos__grid--6',
+		);
+
+		this.grid.classList.add(`photos__grid--${value}`);
+
+		// this.fetchCrewMembers(1, 15, value);
 	}
 
 	addElements (data) {
@@ -62,48 +72,29 @@ class Grid {
 
 		this.grid.innerHTML = '';
 
-		let idx = 0;
-		let breakAll = false;
+		for (let i = 0; i < data.length; i++) {
+			// console.log(data[idx]);
+			const cell = document.createElement('div');
+			cell.classList.add('photos__cell');
 
-		for (let i = 0; i < this.default_rows; i++) {
-			const row = document.createElement('div');
-			row.classList.add('photos__row');
+			const text = document.createElement('div');
+			text.classList.add('photos__cell__facts');
 
-			for (let j = 0; j < this.default_size; j++) {
-				// console.log(data[idx]);
-				const cell = document.createElement('div');
-				cell.classList.add('photos__cell');
+			const h5 = document.createElement('h5');
+			h5.innerHTML = data[i].name;
 
-				const text = document.createElement('div');
-				text.classList.add('photos__cell__facts');
+			const p = document.createElement('p');
+			p.innerHTML = data[i].duties;
 
-				const h5 = document.createElement('h5');
-				h5.innerHTML = data[idx].name;
+			text.appendChild(h5);
+			text.appendChild(p);
 
-				const p = document.createElement('p');
-				p.innerHTML = data[idx].duties;
+			const img = document.createElement('img');
+			img.src = data[i].image;
+			cell.appendChild(text);
+			cell.appendChild(img);
 
-				text.appendChild(h5);
-				text.appendChild(p);
-
-				const img = document.createElement('img');
-				img.src = data[idx].image;
-				cell.appendChild(text);
-				cell.appendChild(img);
-				row.appendChild(cell);
-
-				idx++;
-				if (idx === data.length) {
-					breakAll = true;
-					break;
-				}
-			}
-
-			this.grid?.appendChild(row);
-
-			if (breakAll === true) {
-				break;
-			}
+			this.grid?.appendChild(cell);
 		}
 	}
 

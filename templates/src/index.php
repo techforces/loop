@@ -175,14 +175,14 @@ include($root_path . '/partials/head.php');
               ...
             </grid>
         -->
-        <div class="photos__grid"><!-- Rendered dynamically --></div>
+        <div class="photos__grid photos__grid--5"><!-- Rendered dynamically --></div>
 
         <div class="photos__size-controls">
-            <!-- <div>2</div>
-            <div>3</div> -->
-            <div class="data-size">4</div>
-            <div class="data-size data-size--active">5</div>
-            <div class="data-size">6</div>
+            <div data-size="2" class="data-size data-size--mobile">2</div>
+            <div data-size="3" class="data-size data-size--mobile">3</div>
+            <div data-size="4" class="data-size">4</div>
+            <div data-size="5" class="data-size data-size--active">5</div>
+            <div data-size="6" class="data-size">6</div>
           	</div>
     </div>
 
