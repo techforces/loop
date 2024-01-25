@@ -132,7 +132,7 @@ include($root_path . '/partials/head.php');
 </section>
 
 <section class="team">
-	<?php echo generate_component_image([
+	<!-- <?php echo generate_component_image([
 		'sources' => [
 			[
 				'src' => '/assets/images/visual.jpg',
@@ -140,7 +140,9 @@ include($root_path . '/partials/head.php');
 			],
 		],
 		'class' => 'team__intro-img',
-	]); ?>
+	]); ?> -->
+
+	<canvas id="stage"></canvas>
 
 	<div class="team__header">
 		<div class="team__header__title">

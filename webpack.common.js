@@ -19,16 +19,35 @@ export default {
 		alias: {
 			vue$: 'vue/dist/vue.esm-bundler.js',
 			Scripts: path.resolve(__dirname, 'templates/src/assets/scripts'),
-			Models: path.resolve(__dirname, 'templates/src/assets/scripts/models'),
-			Components: path.resolve(__dirname, 'templates/src/assets/scripts/components'),
-			Bootstrap: path.resolve(__dirname, 'templates/src/assets/scripts/bootstrap'),
-			Store: path.resolve(__dirname, 'templates/src/assets/scripts/store'),
-			InlineIcons: path.resolve(__dirname, 'templates/src/assets/icons/inline'),
+			Models: path.resolve(
+				__dirname,
+				'templates/src/assets/scripts/models'
+			),
+			Components: path.resolve(
+				__dirname,
+				'templates/src/assets/scripts/components'
+			),
+			Bootstrap: path.resolve(
+				__dirname,
+				'templates/src/assets/scripts/bootstrap'
+			),
+			Store: path.resolve(
+				__dirname,
+				'templates/src/assets/scripts/store'
+			),
+			InlineIcons: path.resolve(
+				__dirname,
+				'templates/src/assets/icons/inline'
+			),
 		},
 		unsafeCache: false, // to reload on new files, can drop performance of build task
 	},
 	module: {
 		rules: [
+			{
+				test: /\.glsl$/,
+				loader: 'webpack-glsl-loader',
+			},
 			{
 				test: /\.svg$/,
 				loader: 'svg-inline-loader',
@@ -51,7 +70,10 @@ export default {
 						plugins: [
 							'@babel/plugin-syntax-dynamic-import',
 							'@babel/plugin-proposal-object-rest-spread',
-							['@babel/plugin-transform-runtime', { regenerator: true }],
+							[
+								'@babel/plugin-transform-runtime',
+								{ regenerator: true },
+							],
 						],
 					},
 				},
@@ -64,7 +86,11 @@ export default {
 			{
 				test: /\.css$/,
 				use: [
-					process.env.NODE_ENV !== 'production' ? 'vue-style-loader' : MiniCssExtractPlugin.loader, 'css-loader'],
+					process.env.NODE_ENV !== 'production'
+						? 'vue-style-loader'
+						: MiniCssExtractPlugin.loader,
+					'css-loader',
+				],
 			},
 			{
 				test: /\.scss$/,
@@ -86,7 +112,10 @@ export default {
 						loader: 'sass-resources-loader',
 						options: {
 							resources: [
-								path.resolve(__dirname, 'templates/src/assets/styles/_webpack-common.scss'),
+								path.resolve(
+									__dirname,
+									'templates/src/assets/styles/_webpack-common.scss'
+								),
 							],
 						},
 					},

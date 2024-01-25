@@ -17,14 +17,12 @@ class Grid {
 		this.grid = document.getElementsByClassName('photos__grid')[0];
 		this.grid.innerHTML = '';
 
-		console.log(window.innerWidth);
 		if (window.innerWidth <= 980) {
 			this.grid.classList.add('photos__grid--3');
 			this.grid.classList.remove('photos__grid--5');
 		}
 
 		window.addEventListener('resize', () => {
-			console.log(window.innerWidth);
 			if (window.innerWidth <= 980) {
 				this.grid.classList.add('photos__grid--3');
 				this.grid.classList.remove(
