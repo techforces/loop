@@ -23,7 +23,7 @@ class Grid {
 			this.grid.classList.remove('photos__grid--5');
 		}
 
-		window.addEventListener('resize', (el) => {
+		window.addEventListener('resize', () => {
 			console.log(window.innerWidth);
 			if (window.innerWidth <= 980) {
 				this.grid.classList.add('photos__grid--3');
