@@ -22,19 +22,6 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 
-		// @include nth-hover(3);
-		// .photos__cell {
-		// 	height: 33.333vw;
-		// }
-
-		// @include mq(tablet-landscape) {
-		// 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-		// 	@include nth-hover(5);
-		// 	.photos__cell {
-		// 		height: 20vw;
-		// 	}
-		// }
-
 		&--2 {
 			grid-template-columns: 1fr 1fr;
 			@include nth-hover(2);
@@ -162,9 +149,6 @@
 
 			p {
 				margin: 8px 0 0;
-				// font-size: 16px;
-				// font-weight: 500;
-				// line-height: 180%;
 
 				@include copy-s;
 
@@ -180,7 +164,6 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			// z-index: 30;
 			transition: all 0.5s;
 			filter: grayscale(100%);
 		}
