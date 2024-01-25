@@ -10,7 +10,8 @@ domready(() => {
 	init();
 
 	const grid = new Grid();
-	grid.fetchCrewMembers(1, 15, 'trim');
+
+	grid.init();
 
 	console.log(grid);
 });

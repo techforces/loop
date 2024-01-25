@@ -160,22 +160,19 @@ include($root_path . '/partials/head.php');
             The Layout of the grid:
 
             <grid>
-              	<row>
-					<cell>
-						<facts>
-							<h5/>
-							<p/>
-						</facts>
-						<img/>
-					</cell>
-                ...
-				</row>
-				<row/>
-				<row/>
-              ...
+				<cell>
+					<facts>
+						<h5/>
+						<p/>
+					</facts>
+					<img/>
+				</cell>
+                <cell/>
+				<cell/>
+				...
             </grid>
         -->
-        <div class="photos__grid photos__grid--5"><!-- Rendered dynamically --></div>
+        <div class="photos__grid photos__grid--5"><!-- Rendered dynamically (in modules/grid.js) --></div>
 
         <div class="photos__size-controls">
             <div data-size="2" class="data-size data-size--mobile">2</div>
