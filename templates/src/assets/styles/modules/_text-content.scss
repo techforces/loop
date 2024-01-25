@@ -1,10 +1,10 @@
 .text-content {
 	$block: &;
 
-	margin: 100px 0 200px;
+	margin: 100px 0 180px;
 
 	@include mq(tablet) {
-		margin: 120px 0 200px;
+		margin: 120px 0 300px;
 	}
 
 	@include mq(desktop) {

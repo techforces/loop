@@ -20,7 +20,20 @@
 
 	&__grid {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
+
+		// @include nth-hover(3);
+		// .photos__cell {
+		// 	height: 33.333vw;
+		// }
+
+		// @include mq(tablet-landscape) {
+		// 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		// 	@include nth-hover(5);
+		// 	.photos__cell {
+		// 		height: 20vw;
+		// 	}
+		// }
 
 		&--2 {
 			grid-template-columns: 1fr 1fr;
@@ -79,16 +92,29 @@
 		box-sizing: border-box;
 
 		div {
+			display: none;
 			padding: 10px;
 			box-sizing: border-box;
 
 			transition: all 0.3s;
 			cursor: pointer;
+
+			@include mq(tablet-landscape) {
+				display: block;
+			}
 		}
 
 		.data-size--active {
 			margin: 0 16px;
 			border-bottom: 1px solid $color-primary;
+		}
+
+		.data-size--mobile {
+			display: block;
+
+			@include mq(tablet-landscape) {
+				display: none;
+			}
 		}
 	}
 
@@ -108,27 +134,44 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-end;
-			padding: 24px;
+			padding: 12px;
 			box-sizing: border-box;
 
 			color: $color-dark;
 			background-color: $color-light;
 			transition: 0s;
 
+			@include mq(tablet-landscape) {
+				padding: 24px;
+			}
+
 			h5 {
 				margin: 0;
 				color: $color-primary;
-				font-size: 24px;
-				font-weight: 700;
-				line-height: 120%;
-				text-transform: uppercase;
+
+				@include copy-s-bold;
+
+				@include mq(mobile-landscape) {
+					@include h5;
+				}
+
+				@include mq(desktop) {
+					@include h5;
+				}
 			}
 
 			p {
-				margin: 16px 0 0;
-				font-size: 16px;
-				font-weight: 500;
-				line-height: 180%;
+				margin: 8px 0 0;
+				// font-size: 16px;
+				// font-weight: 500;
+				// line-height: 180%;
+
+				@include copy-s;
+
+				@include mq(desktop) {
+					margin: 16px 0 0;
+					@include copy-l;
+				}
 			}
 		}
 
@@ -162,21 +205,23 @@
 	justify-content: center;
 	align-items: center;
 
-	padding: 24px 64px;
+	padding: 18px 52px;
 	box-sizing: border-box;
 
-	font-family: Inter;
-	font-size: 16px;
-	font-weight: 700;
-	line-height: 120%;
-	letter-spacing: 1.28px;
+	@include copy-l-bold;
 	text-transform: uppercase;
+	font-weight: $font-weight-extra-bold;
 
+	color: $color-dark;
 	background-color: $color-light;
 	transition: all 0.3s;
 
 	border: none;
 	cursor: pointer;
+
+	@include mq(tablet) {
+		padding: 24px 64px;
+	}
 
 	&:hover {
 		background-color: $color-neutral-15;

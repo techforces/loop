@@ -81,25 +81,47 @@
 
 	&__teasers {
 		display: flex;
+		flex-direction: column;
 		width: 100%;
 
-		@include mq(tablet) {
-		}
-
 		@include mq(tablet-landscape) {
-			display: flex;
+			flex-direction: row;
 		}
 
 		&__left {
-			width: 50%;
 			display: flex;
-			clip-path: polygon(0 0%, 100% 20%, 100% 100%, 0% 100%);
+
+			@include mq(tablet-landscape) {
+				width: 50%;
+				clip-path: polygon(0 0%, 100% 20%, 100% 100%, 0% 100%);
+			}
+
+			.teaser:first-child {
+				width: 50%;
+				clip-path: polygon(0 0%, 100% 20%, 100% 100%, 0% 100%);
+
+				@include mq(tablet-landscape) {
+					clip-path: none;
+				}
+			}
+
+			.teaser:last-child {
+				width: 50%;
+				clip-path: polygon(0 20%, 100% 0%, 100% 100%, 0% 100%);
+
+				@include mq(tablet-landscape) {
+					clip-path: none;
+				}
+			}
 		}
 
 		&__right {
-			width: 50%;
 			display: flex;
-			clip-path: polygon(0 20%, 100% 0%, 100% 100%, 0% 100%);
+
+			@include mq(tablet-landscape) {
+				width: 50%;
+				clip-path: polygon(0 20%, 100% 0%, 100% 100%, 0% 100%);
+			}
 		}
 
 		.teaser {

@@ -17,6 +17,40 @@ class Grid {
 		this.grid = document.getElementsByClassName('photos__grid')[0];
 		this.grid.innerHTML = '';
 
+		console.log(window.innerWidth);
+		if (window.innerWidth <= 980) {
+			this.grid.classList.add('photos__grid--3');
+			this.grid.classList.remove('photos__grid--5');
+		}
+
+		window.addEventListener('resize', (el) => {
+			console.log(window.innerWidth);
+			if (window.innerWidth <= 980) {
+				this.grid.classList.add('photos__grid--3');
+				this.grid.classList.remove(
+					'photos__grid--2',
+					'photos__grid--4',
+					'photos__grid--5',
+					'photos__grid--6',
+				);
+
+				this.sizes[0].classList.remove('data-size--active');
+				this.sizes[1].classList.add('data-size--active');
+			} else {
+				this.grid.classList.remove(
+					'photos__grid--2',
+					'photos__grid--3',
+					'photos__grid--4',
+					'photos__grid--6',
+				);
+				this.grid.classList.add('photos__grid--5');
+
+				this.sizes[2].classList.remove('data-size--active');
+				this.sizes[3].classList.add('data-size--active');
+				this.sizes[4].classList.remove('data-size--active');
+			}
+		});
+
 		this.btn = document.getElementsByClassName('js-load-btn')[0];
 		this.btn.addEventListener('click', (el) => {
 			if (el.target.classList.contains(this.btn__less)) {

@@ -1,8 +1,16 @@
 .team {
 	background-color: $color-dark;
-	padding: 400px 0 180px;
+	padding: 180px 0 180px;
 	position: relative;
 	color: $color-light;
+
+	@include mq(tablet) {
+		padding: 300px 0 180px;
+	}
+
+	@include mq(desktop) {
+		padding: 400px 0 180px;
+	}
 
 	&__intro-img {
 		position: absolute;
@@ -18,11 +26,17 @@
 
 	&__header {
 		display: flex;
-		justify-content: space-between;
+		flex-direction: column;
 		padding: 0 min(70px, 10%);
 		box-sizing: border-box;
-		align-items: flex-end;
 		margin-bottom: 120px;
+		gap: 70px;
+
+		@include mq(tablet-landscape) {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: flex-end;
+		}
 
 		&__title {
 			display: flex;
@@ -47,7 +61,13 @@
 
 		&__filters {
 			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
 			gap: 26px;
+
+			@include mq(mobile-landscape) {
+				flex-direction: row;
+			}
 
 			div {
 				font-size: 16px;

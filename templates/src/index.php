@@ -176,7 +176,7 @@ include($root_path . '/partials/head.php');
 
         <div class="photos__size-controls">
             <div data-size="2" class="data-size data-size--mobile">2</div>
-            <div data-size="3" class="data-size data-size--mobile">3</div>
+            <div data-size="3" class="data-size data-size--mobile data-size--active">3</div>
             <div data-size="4" class="data-size">4</div>
             <div data-size="5" class="data-size data-size--active">5</div>
             <div data-size="6" class="data-size">6</div>

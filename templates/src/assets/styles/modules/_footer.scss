@@ -1,6 +1,11 @@
 .footer {
 	display: flex;
+	flex-direction: column-reverse;
 	width: 100%;
+
+	@include mq(desktop) {
+		flex-direction: row;
+	}
 
 	a {
 		color: $color-light;
@@ -10,14 +15,23 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		width: 50%;
+		align-items: center;
+		gap: 48px;
+
+		width: 100%;
 		background-color: $color-dark;
 		padding: 80px min(10%, 80px) 60px;
 		box-sizing: border-box;
 		color: $color-light;
 
+		@include mq(desktop) {
+			width: 50%;
+			align-items: flex-start;
+			gap: 0px;
+		}
+
 		img {
-			width: 400px;
+			width: min(400px, 90%);
 			object-fit: contain;
 		}
 
@@ -25,31 +39,49 @@
 			font-size: 14px;
 			font-weight: 500;
 			line-height: 150%;
+			text-align: center;
 		}
 	}
 
 	&__right {
 		display: flex;
 		flex-direction: column;
-		gap: 80px;
-		padding: 80px 100px 60px;
+		align-items: center;
+		gap: 50px;
+		padding: 60px 5% 60px;
 		box-sizing: border-box;
-		width: 50%;
+		width: 100%;
 
 		background-color: $color-primary;
 		color: $color-light;
+
+		@include mq(desktop) {
+			gap: 80px;
+			padding: 80px 100px 60px;
+			width: 50%;
+		}
 	}
 
 	&__links {
 		display: flex;
-		gap: 120px;
+		// flex-direction: column;
+		gap: 32px;
+
+		@include mq(mobile) {
+			gap: 60px;
+			flex-direction: row;
+		}
+
+		@include mq(desktop) {
+			gap: 120px;
+		}
 
 		ul {
 			padding: 0;
 			list-style-type: none;
 
 			li {
-				padding: 10px;
+				padding: 10px 0;
 				box-sizing: border-box;
 
 				font-size: 16px;
@@ -61,6 +93,10 @@
 
 	&__media {
 		display: flex;
-		gap: 66px;
+		gap: 32px;
+
+		@include mq(tablet) {
+			gap: 66px;
+		}
 	}
 }
