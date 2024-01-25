@@ -16,12 +16,12 @@ void main() {
     float x = pos.x;
     float y = pos.y;
     float o = 360.0;
-    // float m = 1000.0;
     float e = 2.71828;
     float pi = 3.14159;
     
     float sum = 0.0;
 
+	// Bellcurve formula in a circle
     for (int i = 0; i < arr_length; i++){
         float a = 1.0 / (o * sqrt(2.0 * pi)); 
         float b = -0.5 * pow((x*x/100.0 + y*y/100.0 - mu[i])/o, 2.0);
@@ -35,9 +35,10 @@ void main() {
     float colorCoef = pos.z/1000.0;
     pos.z = pos.z + w;
     
+	// Update the color
     vertexColor = vec3(0.0 + 6.0 * colorCoef, 0.0 + 6.0 * colorCoef, min(1.0, 10.0 * colorCoef + 0.0)); 
 
-   	// RATIO
+   	// Ratio calculation, to preserve the correct image dimentions
     if (imageRatio < planeRatio){
         v_uv = vec2(uv.x, uv.y / planeRatio * imageRatio + (1.0 - imageRatio / planeRatio) / 2.0 );
     } else {

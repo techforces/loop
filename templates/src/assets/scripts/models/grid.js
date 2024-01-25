@@ -14,14 +14,17 @@ class Grid {
 	btn__hidden = 'btn--hidden';
 
 	constructor () {
+		/* Set up */
 		this.grid = document.getElementsByClassName('photos__grid')[0];
 		this.grid.innerHTML = '';
 
+		// If window is small, then use mobile style
 		if (window.innerWidth <= 980) {
 			this.grid.classList.add('photos__grid--3');
 			this.grid.classList.remove('photos__grid--5');
 		}
 
+		// Set grid to default size upon window resize, 3 - mobile, 5 - desktop
 		window.addEventListener('resize', () => {
 			if (window.innerWidth <= 980) {
 				this.grid.classList.add('photos__grid--3');
@@ -49,6 +52,7 @@ class Grid {
 			}
 		});
 
+		// Get the button, attack ev listener
 		this.btn = document.getElementsByClassName('js-load-btn')[0];
 		this.btn.addEventListener('click', (el) => {
 			if (el.target.classList.contains(this.btn__less)) {
@@ -58,16 +62,16 @@ class Grid {
 			}
 		});
 
+		// Filter set up
 		this.filters = document.getElementsByClassName('data-filter');
-
 		for (let i = 0; i < this.filters.length; i++) {
 			this.filters[i].addEventListener('click', (el) => {
 				this.filter(el.target.dataset.filter, el.target);
 			});
 		}
 
+		// Size set up
 		this.sizes = document.getElementsByClassName('data-size');
-
 		for (let i = 0; i < this.sizes.length; i++) {
 			this.sizes[i].addEventListener('click', (el) => {
 				this.resize(el.target.dataset.size, el.target);
@@ -75,11 +79,13 @@ class Grid {
 		}
 	}
 
+	// Initialize the class, needed to use it separately because of async function
 	async init () {
 		await this.fetchCrewMembers(1, this.default_cells);
 		this.renderGrid();
 	}
 
+	// Get the filter, get the API response based on the filter, adjust the grid
 	async filter (value, target) {
 		for (let i = 0; i < this.filters.length; i++) {
 			this.filters[i].classList.remove('data-filter--active');
@@ -105,6 +111,7 @@ class Grid {
 		this.renderGrid();
 	}
 
+	// Adjust the grid size, does not interact with API
 	resize (value, target) {
 		for (let i = 0; i < this.sizes.length; i++) {
 			this.sizes[i].classList.remove('data-size--active');
@@ -122,6 +129,7 @@ class Grid {
 		this.grid.classList.add(`photos__grid--${value}`);
 	}
 
+	// Update button state, and grid state, interacts with API
 	async showLess () {
 		await this.fetchCrewMembers(1, this.default_cells, this.current_filter);
 		this.btn.classList.remove(this.btn__less);
@@ -130,6 +138,7 @@ class Grid {
 		this.renderGrid();
 	}
 
+	// Get 6 elements, check if there are more available, adjust the grid
 	async loadMore () {
 		await this.fetchCrewMembers(1, this.total_cells + 6);
 
@@ -147,6 +156,7 @@ class Grid {
 		this.renderGrid();
 	}
 
+	// API Request is handled here
 	async fetchCrewMembers (page = 1, size = 15) {
 		let queryParams = `?page=${page}&limit=${size}`;
 		if (this.current_filter !== 'all') {
@@ -177,6 +187,7 @@ class Grid {
 		}
 	}
 
+	// Render the grid dynamically
 	renderGrid () {
 		const data = this.data_arr;
 

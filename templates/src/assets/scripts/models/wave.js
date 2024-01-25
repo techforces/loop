@@ -54,6 +54,7 @@ class Wave {
 		);
 		this.renderer.setPixelRatio(window.devicePixelRatio);
 
+		// Camera calculations to map the object size to the viewport size
 		this.fov =
 			(180 * (2 * Math.atan(window.innerHeight / 2 / this.perspective))) /
 			Math.PI;
@@ -66,31 +67,25 @@ class Wave {
 
 		this.camera.position.set(0, 0, this.perspective);
 
+		// Texture loader
 		const loader = new THREE.TextureLoader();
 		let texture;
-		// load a resource
-		loader.load(
-			// resource URL
-			'./assets/images/visual.jpg',
 
-			// onLoad callback
+		loader.load(
+			'./assets/images/visual.jpg',
 			(el) => {
-				// in this example we create the material when the texture is loaded
 				texture = el;
 				this.planeMaterial.uniforms.u_image.value = el;
 				this.planeMaterial.uniforms.imageRatio.value =
 					el.image.width / el.image.height;
 			},
-
-			// onProgress callback currently not supported
 			undefined,
-
-			// onError callback
 			function () {
 				console.error('An error happened.');
 			},
 		);
 
+		// Plane calculations and properties
 		this.planeW = Math.min(window.innerWidth * 0.8, 1200);
 		this.planeH = this.planeW / 2;
 
@@ -121,27 +116,21 @@ class Wave {
 			},
 		});
 
-		console.log(this.planeMaterial);
-
+		// Adding the plane
 		this.plane = new THREE.Mesh(this.planeGeometry, this.planeMaterial);
 		this.scene.add(this.plane);
 
+		// Detect the click
 		this.canvas.addEventListener('click', () => {
 			this.restart();
 		});
 
+		// Update the mouse
 		document.addEventListener('mousemove', (event) => {
-			const rect = this.renderer.domElement.getBoundingClientRect();
-
-			this.mouse.x =
-				((event.clientX - rect.left) / (rect.right - rect.left)) * 2 -
-				1;
-			this.mouse.y =
-				-((event.clientY - rect.top) / (rect.bottom - rect.top)) * 2 +
-				1;
-			this.updateRaycaster();
+			this.updateRaycaster(event);
 		});
 
+		// Resize event, make the plane size responsive
 		window.addEventListener('resize', () => {
 			this.planeW = Math.min(window.innerWidth * 0.8, 1200);
 			this.planeH = this.planeW / 2;
@@ -158,19 +147,27 @@ class Wave {
 		this.animate();
 	}
 
+	/* Main animation loop */
 	animate () {
 		this.planeMaterial.uniforms.time.value = -performance.now() * 0.25;
 		this.renderer.render(this.scene, this.camera);
 		requestAnimationFrame(this.animate);
 	}
 
-	updateRaycaster () {
+	/* Update cursor position to calculate when to set Pointer Cursor */
+	updateRaycaster (event) {
+		const rect = this.renderer.domElement.getBoundingClientRect();
+
+		this.mouse.x =
+			((event.clientX - rect.left) / (rect.right - rect.left)) * 2 - 1;
+		this.mouse.y =
+			-((event.clientY - rect.top) / (rect.bottom - rect.top)) * 2 + 1;
+
 		this.raycaster.setFromCamera(this.mouse, this.camera);
 		const intersects = this.raycaster.intersectObject(this.plane);
 
 		if (intersects.length > 0) {
 			this.body.style.cursor = 'pointer';
-			// console.log(intersects[0].object.userData);
 		} else {
 			this.body.style.cursor = 'default';
 		}
@@ -178,6 +175,7 @@ class Wave {
 		return intersects;
 	}
 
+	/* Start the animation, each animation is a separate process */
 	restart () {
 		const val = {
 			mu: -1000,
