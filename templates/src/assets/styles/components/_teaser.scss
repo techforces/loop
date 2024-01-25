@@ -1,8 +1,13 @@
 .teaser {
 	$block: &;
 
+	width: 100%;
 	position: relative;
-	padding: 35px 27px;
+	padding: 100px 27px 35px;
+
+	@include mq(tablet) {
+		padding-top: 170px;
+	}
 
 	&:before {
 		content: '';
