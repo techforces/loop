@@ -4,12 +4,6 @@ class Grid {
 	filters;
 	sizes;
 
-	default_rows = 3;
-	default_size = 5;
-
-	current_rows = 3;
-	current_size = 5;
-
 	data_arr;
 	total_cells = 15;
 	default_cells = 15;
@@ -80,7 +74,6 @@ class Grid {
 	}
 
 	resize (value, target) {
-		console.log(value);
 		for (let i = 0; i < this.sizes.length; i++) {
 			this.sizes[i].classList.remove('data-size--active');
 		}
@@ -154,8 +147,6 @@ class Grid {
 
 	renderGrid () {
 		const data = this.data_arr;
-
-		console.log(this.data_arr);
 
 		this.grid.innerHTML = '';
 
